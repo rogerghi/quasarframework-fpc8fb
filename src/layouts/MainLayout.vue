@@ -165,8 +165,6 @@ export default defineComponent({
   // },
 
   setup() {
-    const leftDrawerOpen = ref(false);
-
     return {
       left: false,
       text: '',
@@ -177,11 +175,6 @@ export default defineComponent({
       name: null,
       age: null,
       accept: false,
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
     };
   },
 });
