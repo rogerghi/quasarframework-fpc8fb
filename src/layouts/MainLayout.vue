@@ -177,5 +177,36 @@ export default defineComponent({
       accept: false,
     };
   },
+  methods: {
+    notify: function () {
+      this.$q.notify('Running on Quasar v' + this.$q.version);
+    },
+    counterLabelFn({ totalSize, filesNumber, maxFiles }) {
+      return `${filesNumber} files of ${maxFiles} | ${totalSize}`;
+    },
+    onSubmit() {
+      if (this.accept !== true) {
+        this.$q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'warning',
+          message: 'You need to accept the license and terms first',
+        });
+      } else {
+        this.$q.notify({
+          color: 'green-4',
+          textColor: 'white',
+          icon: 'cloud_done',
+          message: 'Submitted',
+        });
+      }
+    },
+
+    onReset() {
+      this.name = null;
+      this.age = null;
+      this.accept = false;
+    },
+  },
 });
 </script>
