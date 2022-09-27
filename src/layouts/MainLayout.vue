@@ -16,7 +16,12 @@
             label="Disposition"
           ></q-btn>
           <q-btn icon="mdi-content-save" color="blue" label="Save"></q-btn>
-          <q-btn icon="mdi-send" color="teal" label="Send"></q-btn>
+          <q-btn
+            icon="mdi-send"
+            color="teal"
+            label="Send"
+            @click="onSubmit()"
+          ></q-btn>
         </div>
       </q-toolbar>
     </q-header>
@@ -110,11 +115,15 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
+import { Notify } from 'quasar';
+import { useQuasar } from 'quasar';
 
 export default defineComponent({
   name: 'MainLayout',
 
   setup() {
+    const $q = useQuasar();
+
     return {
       left: false,
       text: 'test',
@@ -135,6 +144,7 @@ export default defineComponent({
       return `${filesNumber} files of ${maxFiles} | ${totalSize}`;
     },
     onSubmit() {
+      console.log('test');
       if (this.accept !== true) {
         this.$q.notify({
           color: 'red-5',
