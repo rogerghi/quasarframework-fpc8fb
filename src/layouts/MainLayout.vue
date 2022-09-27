@@ -26,9 +26,9 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="left" side="left"> </q-drawer>
+    <q-drawer v-model="left"  show-if-above side="left"> </q-drawer>
 
-    <q-drawer show-if-above v-model="right" side="right"> </q-drawer>
+    <q-drawer v-model="right" show-if-above  side="right"> </q-drawer>
 
     <q-page-container>
       <router-view>
